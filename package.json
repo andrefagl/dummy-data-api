@@ -1,0 +1,25 @@
+{
+  "name": "dummy-data-api",
+  "version": "1.0.0",
+  "description": "Dummy placeholder data to speed up development process",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/json-server --watch index.js --port 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrefagl/dummy-data-api.git"
+  },
+  "author": "André Lima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrefagl/dummy-data-api/issues"
+  },
+  "homepage": "https://github.com/andrefagl/dummy-data-api#readme",
+  "dependencies": {
+    "faker": "^3.1.0",
+    "json-server": "^0.9.4",
+    "lodash": "^4.17.3"
+  }
+}
