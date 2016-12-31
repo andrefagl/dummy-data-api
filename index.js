@@ -1,19 +1,23 @@
 module.exports = function() {
     const faker = require('faker');
     const _ = require('lodash');
+    const nCards = 20;
+    const nUsers = 10;
+    const nPosts = 100;
+    const nComments = 500;
 
     return {
-        cards: _.times(20, function(n) {
+        cards: _.times(nCards, function(n) {
             return {
                 id: n+1,
                 title: faker.commerce.productName(),
                 text: faker.lorem.sentence(40),
                 author: faker.name.findName(),
-                avatar_url: faker.image.avatar(),
-                image_url: faker.image.imageUrl(300,150,"animals"),
+                avatarUrl: faker.image.avatar(),
+                imageUrl: faker.image.imageUrl(300,150,"animals"),
             }
         }),
-        users: _.times(10, function(n) {
+        users: _.times(nUsers, function(n) {
             return {
                 id: n+1,
                 name: faker.name.findName(),
@@ -36,6 +40,23 @@ module.exports = function() {
                     catchPhrase: faker.company.catchPhrase(),
                     bs: faker.company.bs()
                 }
+            }
+        }),
+        posts: _.times(nPosts, function(n) {
+            return {
+                id: n+1,
+                userId: _.random(1,nUsers),
+                title: faker.lorem.sentence(20),
+                text: faker.lorem.paragraph(6),
+            }
+        }),
+        comments: _.times(nComments, function(n) {
+            return {
+                id: n+1,
+                postId: _.random(1,nPosts),
+                name: faker.name.findName(),
+                email: faker.internet.email(),
+                text: faker.lorem.sentence(40),
             }
         }),
     }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>André Lima - Dummy data API</title>
+    <!-- Stylesheets -->
+    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet">
+    <link type="text/css" href="stylesheets/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="twelve columns">
+                <h3 class="text-center">Dummy data REST API</h3>
+                <div class="text-center">
+                    <a class="button" href="https://git.io/vMLjf" target="_blank">View on GitHub</a>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="four columns">
+                <h5>Endpoints</h5>
+                <div id="resources">
+                    <table class="u-full-width">
+                        <tbody>
+                            <tr class="loading-state">
+                                <td colspan="2">loading, please wait...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="four columns">
+                <h5>Examples</h5>
+                <table class="u-full-width">
+                    <tbody>
+                        <tr><td class="verb">GET</td><td><a href="/posts">/posts</a></td></tr>
+                        <tr><td class="verb">GET</td><td><a href="/posts/1">/posts/1</a></td></tr>
+                        <tr><td class="verb">GET</td><td><a href="/posts/1/comments">/posts/1/comments</a></td></tr>
+                        <tr><td class="verb">GET</td><td><a href="/comments?postId=1">/comments?postId=1</a></td></tr>
+                        <tr><td class="verb">GET</td><td><a href="/posts?userId=1">/posts?userId=1</a></td></tr>
+                        <tr><td class="verb">POST</td><td>/posts</td></tr>
+                        <tr><td class="verb">PUT</td><td>/posts/1</td></tr>
+                        <tr><td class="verb">PATCH</td><td>/posts/1</td></tr>
+                        <tr><td class="verb">DELETE</td><td>/posts/1</td></tr>
+                    </tbody>
+                </table>
+                <small>All HTTP verbs, CORS and JSONP are supported.</small>
+            </div>
+
+            <div class="four columns">
+                <h5>Usage</h5>
+                <pre>
+                    <code>
+var base = 'http://api.alima.com';
+
+$.ajax({
+    url: base + '/posts/1',
+    method: 'GET'
+}).then(function(data) {
+    console.log(data);
+});
+                    </code>
+                </pre>
+                <small>Run this code in a console or from anywhere</small>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $.get('db').then(function(data) {
+                $('#resources > table > tbody').empty();
+                $.each(data, function(key, value) {
+                    $('#resources > table > tbody').append('<tr> \
+                                                <td><a href="'+ key + '" target="_blank">/' + key + '</a></td> \
+                                                <td>' + value.length + ' items</td> \
+                                            </tr>');
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
