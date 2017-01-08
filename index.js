@@ -11,6 +11,7 @@ module.exports = function() {
             return {
                 id: n+1,
                 title: faker.commerce.productName(),
+                disclaimer: faker.lorem.sentence(3),
                 text: faker.lorem.sentence(40),
                 author: faker.name.findName(),
                 avatarUrl: faker.image.avatar(),
